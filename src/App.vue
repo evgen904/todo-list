@@ -56,7 +56,7 @@
               ></div>
               <div class="desc">
                 <div class="title">
-                  <input type="checkbox">
+                  <input @click="status(item.id, item.done)" type="checkbox">
                   <div>
                     {{ item.name }}
                   </div>
@@ -197,6 +197,13 @@ export default {
           })
           .catch(() => {})
       }
+    },
+    status(val, done) {
+      const statusTask = (!done) ? true : false;
+      this.$store.dispatch('statusTask', {
+        done: statusTask,
+        id: val
+      })
     }
   }
 }

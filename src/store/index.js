@@ -40,6 +40,13 @@ export default new Vuex.Store({
       task.desc = desc
       task.done = done
       task.priority = priority
+    },
+    statusTask (state, {done, id}) {
+      const task = state.tasks.find(a => {
+        return a.id === id
+      })
+
+      task.done = done
     }
   },
   actions: {
@@ -82,6 +89,19 @@ export default new Vuex.Store({
         })
         commit('updateTask', {
           name, desc, done, priority, id
+        })
+      } catch (error) {
+        console.log(error.message)
+        throw error
+      }
+    },
+    async statusTask ({commit}, {done, id}) {
+      try {
+        await fb.database().ref('tasks/123456').child(id).update({
+          done
+        })
+        commit('statusTask', {
+          done, id
         })
       } catch (error) {
         console.log(error.message)
