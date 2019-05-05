@@ -16,12 +16,13 @@ new Vue({
   render: h => h(App),
   created () {
     fb.initializeApp({
-      apiKey: 'AIzaSyC-EVj6IGepD3F6pEuECX6Gkgbx9ikBloU',
-      authDomain: 'its-ads-4c326.firebaseapp.com',
-      databaseURL: 'https://its-ads-4c326.firebaseio.com',
-      projectId: 'its-ads-4c326',
-      storageBucket: 'its-ads-4c326.appspot.com',
-      messagingSenderId: '242674476104'
+      apiKey: "AIzaSyDwIN-4NWrF1cX39qZbw1Ei0JsfWLEjvcA",
+      authDomain: "todo-list-1ecea.firebaseapp.com",
+      databaseURL: "https://todo-list-1ecea.firebaseio.com",
+      projectId: "todo-list-1ecea",
+      storageBucket: "todo-list-1ecea.appspot.com",
+      messagingSenderId: "119780722586",
+      appId: "1:119780722586:web:c9d395a5aa977f6c"
     });
     this.$store.dispatch('fetchTasks');
   }
